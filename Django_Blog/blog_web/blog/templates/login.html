@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #000000, #76555b, #ff6a65);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            color: #fff;
+        }
+
+        .form-control::placeholder {
+            color: #ddd;
+        }
+
+        .btn-primary {
+            background-color: #ff6a65;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff4a45;
+        }
+
+        .form-check-label, .forgot-password {
+            color: #fff;
+            font-size: 0.9rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .social-buttons .btn {
+            width: 48%;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Welcome Back!</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="username" class="form-label text-white">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label text-white">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Sign In</button>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Remember Me</label>
+                </div>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+            </div>
+            <div class="text-center mt-3 text-white">Or Sign In With</div>
+            <div class="social-buttons">
+                <button type="button" class="btn btn-outline-light">Facebook</button>
+                <button type="button" class="btn btn-outline-light">Twitter</button>
+            </div>
+        </form>
+        <div class="text-center mt-3">
+            <span class="text-white">Don't have an account? <a href="/signup/" class="text-warning">Sign Up</a></span>
+        </div>
+    </div>
+</body>
+</html>
